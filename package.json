@@ -1,0 +1,19 @@
+{
+  "name": "petmigo-nodejs-rest",
+  "version": "1.0.0",
+  "description": "PetMigo Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albeneto-git/petmigo-servicer.git"
+  },
+  "author": "Albertino Cardoso Neto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/albeneto-git/petmigo-servicer/issues"
+  },
+  "homepage": "https://github.com/albeneto-git/petmigo-servicer#readme"
+}
