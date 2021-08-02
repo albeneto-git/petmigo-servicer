@@ -2,9 +2,9 @@ const customExpress = require('./config/customExpress');
 const conexao = require('./infraestrutura/conexao');
 const Tabelas = require('./infraestrutura/tabelas')
 
-conexao.connect(error =>{
-    if(error){
-        console.log('Ocorreu erro ao conectar com banco de dados: ' + error);
+conexao.connect(erro =>{
+    if(erro){
+        console.log('Ocorreu erro ao conectar com banco de dados: ' + erro);
     }else{
         console.log('conectado com banco de dados');
         Tabelas.init(conexao);
