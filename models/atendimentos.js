@@ -10,17 +10,36 @@ class Atendimento{
         const dataEhValida = moment(data).isSameOrAfter(dataCriacao);
         const clienteEhValido = atendimento.cliente.length >= 5;
 
-        const atendimentoDatado = {...atendimento, data, dataCriacao};
-        const sql = 'INSERT INTO atendimentos SET ?';
-        
-        conexao.query(sql, atendimentoDatado, (erro, resultados)=>{
-
-            if(erro){
-                res.status(400).json(erro);
-            }else{
-                res.status(201).json(resultados);
+        const validacoes = [
+            {
+                nome: 'data',
+                valido: dataEhValida,
+                mensagem: 'Data deve ser maior ou igual a data atual'
+            },
+            {
+                nome: 'cliente',
+                valido: clienteEhValido,
+                mensagem: 'O nome do cliente tem que ter no mínimo cinco caracteres'
             }
-        })
+        ];
+
+        const erros = validacoes.filter(campo => !campo.valido);
+        const existemErros = erros.length;
+        if(existemErros){
+            res.status(400).json(erros);
+        }else{
+            const atendimentoDatado = {...atendimento, data, dataCriacao};
+            const sql = 'INSERT INTO atendimentos SET ?';
+            
+            conexao.query(sql, atendimentoDatado, (erro, resultados)=>{
+    
+                if(erro){
+                    res.status(400).json(erro);
+                }else{
+                    res.status(201).json(resultados);
+                }
+            });
+        }
     }
 
 }
