@@ -29,13 +29,13 @@ class Atendimento{
         const erros = validacoes.filter(campo => !campo.valido);
         const existemErros = erros.length;
         if(existemErros){
-            res.status(400).json(erros);
             return new Promise((resolve, reject) => reject(erros));
         }else{
             const atendimentoDatado = {...atendimento, data, dataCriacao};
             return repositorio.adiciona(atendimentoDatado)
                 .then(resultados => {
-                    return atendimentoDatado;
+                    const id = resultados.insertId;
+                    return {...atendimentoDatado, id};
                 });
         }
     }

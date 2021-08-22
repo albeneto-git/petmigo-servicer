@@ -16,7 +16,7 @@ module.exports = app => {
         
         Atendimento.adiciona(atendimento)
             .then(atendimentoCadastrado => res.status(200).json(atendimentoCadastrado))
-            .catch(erro => res.status(400).json(erro))
+            .catch(erros => res.status(400).json(erros))
     });
 
     app.patch('/atendimentos/:id', (req, res) => {
