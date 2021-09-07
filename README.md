@@ -1,4 +1,17 @@
-# Bem vindo ao petmigo-servicer!
+# petmigo-service
 
-Montamos uma API rest do zero utilizando **Node Js**, **Express** e **MySQL**. Neste curso construímos nossos controllers, models que realizarão a conexão com a base de dados, validações prévias, observamos status http e formamos status que façam sentido para nosso client.
+API REST padronizada e escalável com NodeJs
 
+## Objetivos
+
+PetMigo-Service consistem em algumas APIs que realizar a criação, alteração, remoção e consulta dos atendimentos bem como o pet com sua imagem.
+
+## Tecnologias utilizadas:
+
+* Axios
+* Express
+* MySql
+* Body-parser
+* Consign
+* Moment
+* Nodemon
